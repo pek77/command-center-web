@@ -14,9 +14,9 @@ exports.findListByRoleId = function (req, res) {
     // var base64 = 'data:' + mineType.lookup(path) + ';base64,' + data;
     toGoClient.post('findListByRoleId', {id:id}, function (err, cloudres, body) {
         console.log("result:"+JSON.stringify(body))
-        // result["image"] = body;
-        // result["image_type"] = 'base64';
-        // saveResult(path, result)
+        if(!body){
+            body = {};
+        }
         body["web_az"] = web_az;
         res.send(body)
     });
