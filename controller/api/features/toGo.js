@@ -22,3 +22,8 @@ exports.findListByRoleId = function (req, res) {
         res.send(body)
     });
 };
+
+
+exports.root = function (req, res) {
+        res.send({"Web-Instant":{"instantId":instantId,"AZ":web_az}})
+};
