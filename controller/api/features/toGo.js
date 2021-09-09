@@ -5,7 +5,7 @@
 var request = require('request-json');
 var togo_Host = process.env.toGoHost || "http://127.0.0.1:3002";
 var web_az = process.env.web_az || "AZ 1";
-var instantId = process.env.instantId || "instantId";
+var instanceId = process.env.instanceId || "instanceId";
 
 
 exports.findListByRoleId = function (req, res) {
@@ -18,12 +18,12 @@ exports.findListByRoleId = function (req, res) {
         if(!body){
             body = {};
         }
-        body["Web-Instant"] = {"instantId":instantId,"AZ":web_az};
+        body["Web-Instance"] = {"instanceId":instanceId,"AZ":web_az};
         res.send(body)
     });
 };
 
 
 exports.root = function (req, res) {
-        res.send({"Web-Instant":{"instantId":instantId,"AZ":web_az}})
+        res.send({"Web-Instance":{"instanceId":instanceId,"AZ":web_az}})
 };
